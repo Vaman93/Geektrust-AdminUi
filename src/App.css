@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
+.icon{
+    color: red
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.serachinput {
+    width : 70%;
+    padding: 8px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.MaindivAdminList{
+  
+    width: 100%;
+    margin: auto;
+    margin-bottom: 1%;
+    margin-top: 2%;
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+table{
+    margin: auto;
+    margin-top: 2%;
+    width: 70%;
+    text-align: left;
 }
 
-.App-link {
-  color: #61dafb;
+thead{
+    width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+tr{
+    height: 30px
+}
+
+th{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+td{
+    font-size: 18px
+}
+
+.checkboxth {
+    width: 10%;
+    
+}
+
+.Nameth {
+    width: 20%;
+}
+
+.Emailth {
+    width: 30%;
+}
+
+.td > input {
+    width: 40%;
+    height: 100%;
+}
+
+
+
+.deletebutton {
+    padding: 10px;
+    font-size:13px;
+    border: 1px solid rgb(239, 50, 7);
+    background-color: rgb(239, 38, 7);
+    margin-right: 3%;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.sgbtn{
+    padding: 5px;
+    font-size:13px;
+    border: 1px solid rgb(21, 119, 238);
+    background-color: transparent;
+    margin-right: 3%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sgbtn:hover{
+    background-color: rgb(21, 119, 238);
+    color: white;
+}
+
+.deletebutton {
+    margin-top: 1%;
+}
+
+
+.paginationBttns{
+    margin-top:2%;
+    width: 95%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 6px;
+    border: 1px solid rgb(21, 119, 238);
+    color: blue;
+    cursor: pointer;
+}
+
+.paginationBttns a:hover{
+    color: white ;
+    background-color:rgb(21, 119, 238);
+
+}
+
+.selected a {
+    color: white ;
+    background-color:rgb(21, 119, 238);
+}
+
+.disabledbtn a{
+    background-color : #d3d3d3;
+    color: rgb(197, 197, 197);
+    border: none ;
+}
+
+.disabledbtn a:hover{
+    background-color : #d3d3d3;
+    color: rgb(197, 197, 197);
+    border: none ;
 }

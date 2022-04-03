@@ -1,0 +1,7 @@
+export const ADD_ADMIN_LIST = "ADD_ADMIN_LIST";
+
+export const EDIT_ADMIN_LIST = "EDIT_ADMIN_LIST";
+
+export const DELETE_ADMIN_LIST = "DELETE_ADMIN_LIST";
+
+export const SEARCH_ADMIN_LIST = "SEARCH_ADMIN_LIST";
