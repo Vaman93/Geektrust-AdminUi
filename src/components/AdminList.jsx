@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Icon from "react-crud-icons";
 import "../../node_modules/react-crud-icons/dist/css/react-crud-icons.css";
-
 import { useDispatch, useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
+
+// Redux All action importing
 import {
   getData,
   deleteAdminlist,
@@ -11,33 +12,44 @@ import {
   sreachAdmin,
 } from "../redux/Adminlist/Actions";
 
+// input demo object
 const initValues = {
   name: "",
   email: "",
   role: "",
 };
 
+// setTimeoutid for serach bar
 var setTimeoutid;
 
+// emapty array for check box admin
 var checkdataarr = [];
 
+// Main component Function
 export default function AdminList() {
-  const { adminList } = useSelector((store) => store);
+  const { adminList } = useSelector((store) => store); // Get Admin data from redux store
   const dispatch = useDispatch();
-  const [values, setValues] = useState(initValues);
-  const [num, setNum] = useState("");
+  const [display, setDisplay] = useState(false);
+  const [values, setValues] = useState(initValues); // Input values assigend
+
+  const [num, setNum] = useState(""); // One eidt id number
+
+  // Pagnation all value assigend
   const [currentPage, setCurrentPage] = useState(0);
   const [Adminperpage] = useState(10);
   const [allCheckValue, setAllCheckValue] = useState(false);
 
+  // useing useEffect to get data from redux sotre
   useEffect(() => {
     getAdminList();
   }, []);
 
+  // Get data from redux sotre funtion
   const getAdminList = () => {
-    dispatch(getData());
+    dispatch(getData()); //  calling dispatch function
   };
 
+  // Doing the Pagnation functionality and Page number user count
   const indexoffirstpage = currentPage * Adminperpage;
   let currentAmdin = adminList.slice(
     indexoffirstpage,
@@ -45,10 +57,12 @@ export default function AdminList() {
   );
   const pageCount = Math.ceil(adminList.length / Adminperpage);
 
+  // ReactPaginate In bulid function
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
 
+  // Search bar function doing dobouncing search by any value
   const getSearch = (v) => {
     if (v.length < 1) {
       getAdminList();
@@ -65,6 +79,7 @@ export default function AdminList() {
     }
   };
 
+  // Delete Admin particular user functionality
   const deleteData = (id) => {
     let updatedata = adminList.filter((e) => {
       return e.id !== id;
@@ -72,6 +87,7 @@ export default function AdminList() {
     dispatch(deleteAdminlist(updatedata));
   };
 
+  // Edit the particular Admin user new value functionality
   const editvalue = (e) => {
     let { name, value } = e.target;
     setValues({
@@ -80,6 +96,8 @@ export default function AdminList() {
     });
   };
 
+  // Edit the particular Admin  user functionality
+  // save the changes
   const changethevalue = () => {
     let updatedata = adminList.filter((e) => {
       if (num === e.id) {
@@ -94,14 +112,17 @@ export default function AdminList() {
     setNum("");
   };
 
+  // Cancel the editing process
   const cancelfu = () => {
     setNum("");
   };
 
+  // Selected user delete id
   const checkboxDelete = (v) => {
     checkdataarr.push(v);
   };
 
+  // Selected user delete function
   const DeleteCheckbox = () => {
     let updatedata = adminList;
 
